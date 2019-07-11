@@ -22,7 +22,17 @@ namespace AstraPlat
                 Console.WriteLine("2 - Валидация");
                 Console.WriteLine("3 - Пополнить счёт");
                 Console.WriteLine("0 - Выход");
-                menu = Convert.ToInt32(Console.ReadLine());
+                while (true)
+                {
+                    if (int.TryParse(Console.ReadLine(), out menu) && (menu < 4 && menu >= 0))
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        Console.Write("Неккоректный выбор пункта меню! Выберите заново: ");
+                    }
+                }
                 switch (menu)
                 {
                     case 0: isExit = true; break;
@@ -39,7 +49,17 @@ namespace AstraPlat
                         Console.WriteLine("Доступные карты:");
                         ShowCards(ref cards);
                         Console.Write("Введите номер вашей карточки: ");
-                        cardId = Convert.ToInt32(Console.ReadLine());
+                        while (true)
+                        {
+                            if (int.TryParse(Console.ReadLine(), out cardId))
+                            {
+                                break;
+                            }
+                            else
+                            {
+                                Console.Write("Неккоректный ввод номера карты! Введие заново: ");
+                            }
+                        }
                         for (int i = 0; i < cards.Count; i++)
                         {
                             if (cards[i].GetId() == cardId)
@@ -67,13 +87,33 @@ namespace AstraPlat
                         Console.WriteLine("Доступные карты:");
                         ShowCards(ref cards);
                         Console.Write("Введите номер вашей карточки: ");
-                        cardId = Convert.ToInt32(Console.ReadLine());
+                        while (true)
+                        {
+                            if (int.TryParse(Console.ReadLine(), out cardId))
+                            {
+                                break;
+                            }
+                            else
+                            {
+                                Console.Write("Неккоректный ввод номера карты! Введие заново: ");
+                            }
+                        }
                         for (int i = 0; i < cards.Count; i++)
                         {
                             if (cards[i].GetId() == cardId)
                             {
                                 Console.Write("Введите сумму для пополнения(максимальная сумма за раз = 10тыс. тнг): ");
-                                cash = Convert.ToInt32(Console.ReadLine());
+                                while (true)
+                                {
+                                    if (int.TryParse(Console.ReadLine(), out cash) && (cash<=10000 && cash>0))
+                                    {
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        Console.Write("Неккоректный ввод суммы! Введие заново: ");
+                                    }
+                                }
                                 if (cards[i].Refill(cash))
                                 {
                                     Console.WriteLine("Пополнение успешно!");
