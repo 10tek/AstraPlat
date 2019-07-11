@@ -14,6 +14,7 @@ namespace AstraPlat
             bool isExit = false;
             int menu;
             int cardId;
+            int cash;
             while (!isExit)
             {
                 Console.Clear();
@@ -59,6 +60,40 @@ namespace AstraPlat
                             }
                         }
                         Console.Write("Нажмите любую клавишу что бы продолжить");
+                        Console.ReadKey();
+                        break;
+                    case 3:
+                        Console.Clear();
+                        Console.WriteLine("Доступные карты:");
+                        ShowCards(ref cards);
+                        Console.Write("Введите номер вашей карточки: ");
+                        cardId = Convert.ToInt32(Console.ReadLine());
+                        for (int i = 0; i < cards.Count; i++)
+                        {
+                            if (cards[i].GetId() == cardId)
+                            {
+                                Console.Write("Введите сумму для пополнения(максимальная сумма за раз = 10тыс. тнг): ");
+                                cash = Convert.ToInt32(Console.ReadLine());
+                                if (cards[i].Refill(cash))
+                                {
+                                    Console.WriteLine("Пополнение успешно!");
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Ошибка! Неккоректный ввод!");
+                                }
+                                break;
+                            }
+                            else if (i == cards.Count - 1)
+                            {
+                                Console.WriteLine("Такой карты не существует!");
+                            }
+                        }
+                        Console.Write("Нажмите любую клавишу что бы продолжить");
+                        Console.ReadKey();
+                        break;
+                    default:
+                        Console.Write("Неккоректно выбран пункт меню! Пожалуйста, выберите одну из списка!(нажмите любую клавишу что бы продолжить)");
                         Console.ReadKey();
                         break;
                 }
