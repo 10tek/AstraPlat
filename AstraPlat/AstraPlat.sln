@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.168
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AstraPlat", "AstraPlat\AstraPlat.csproj", "{74BA487A-EC08-43BA-8B80-D84301EED442}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{74BA487A-EC08-43BA-8B80-D84301EED442}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74BA487A-EC08-43BA-8B80-D84301EED442}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74BA487A-EC08-43BA-8B80-D84301EED442}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74BA487A-EC08-43BA-8B80-D84301EED442}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E92C7C6A-885C-41BC-BA48-EF8DBFF96931}
+	EndGlobalSection
+EndGlobal
