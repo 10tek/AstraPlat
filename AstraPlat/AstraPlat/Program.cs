@@ -13,6 +13,7 @@ namespace AstraPlat
             List<AstraPlatCard> cards = new List<AstraPlatCard>();
             bool isExit = false;
             int menu;
+            int cardId;
             while (!isExit)
             {
                 Console.Clear();
@@ -32,7 +33,42 @@ namespace AstraPlat
                         Console.Write("Нажмите любую клавишу что бы продолжить");
                         Console.ReadKey();
                         break;
+                    case 2:
+                        Console.Clear();
+                        Console.WriteLine("Доступные карты:");
+                        ShowCards(ref cards);
+                        Console.Write("Введите номер вашей карточки: ");
+                        cardId = Convert.ToInt32(Console.ReadLine());
+                        for (int i = 0; i < cards.Count; i++)
+                        {
+                            if (cards[i].GetId() == cardId)
+                            {
+                                if (cards[i].Valid())
+                                {
+                                    Console.WriteLine("Валидация успешна!");
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Ошибка! Не хватает денег!");
+                                }
+                                break;
+                            }
+                            else if (i == cards.Count - 1)
+                            {
+                                Console.WriteLine("Такой карты не существует!");
+                            }
+                        }
+                        Console.Write("Нажмите любую клавишу что бы продолжить");
+                        Console.ReadKey();
+                        break;
                 }
+            }
+        }
+        static void ShowCards(ref List<AstraPlatCard> cards)
+        {
+            for (int i = 0; i < cards.Count; i++)
+            {
+                Console.WriteLine($"ID: {cards[i].GetId()} - {cards[i].GetWallet()}тг");
             }
         }
     }
