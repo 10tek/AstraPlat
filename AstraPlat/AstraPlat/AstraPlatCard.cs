@@ -28,7 +28,7 @@ namespace AstraPlat
 
         public bool Valid()
         {
-            if (wallet > 90)
+            if (wallet >= 90)
             {
                 wallet -= 90;
                 return true;
